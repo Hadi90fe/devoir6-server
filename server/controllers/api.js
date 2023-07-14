@@ -7,15 +7,22 @@ const jwt = require('jsonwebtoken')
 module.exports = class API {
 
     //fetch all tortues
+    // static async fetchAllTortues(req, res) {
+    //     await Tortue.find()
+    //         .then(tortues => res.json(tortues))
+    //         .catch(err => res.status(500).send(err));
+    // };
+
+    //fetch all tortues
     static async fetchAllTortues(req, res) {
         const page = parseInt(req.query.page) || 1; // Current page number
-        const limit = parseInt(req.query.limit) || 6; // Number of documents per pag
+        const limit = parseInt(req.query.limit) || 6; // Number of documents per page
         const skip = (page - 1) * limit;
         const totalCount = await Tortue.countDocuments();
         const totalPages = Math.ceil(totalCount / limit);
 
         await Tortue.find().skip(skip).limit(limit).exec()
-            .then(tortues => res.json({ tortues, totalCount, totalPages }))
+            .then(tortues => res.json({ tortues, totalCount, totalPages , page}))
             .catch(err => res.status(500).send(err));
     };
 
