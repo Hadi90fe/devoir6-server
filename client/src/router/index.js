@@ -4,7 +4,7 @@ import AddTortueView from '../views/AddTortueView.vue'
 import TortueView from '../views/TortueView.vue'
 import EditTortueView from '../views/EditTortueView.vue'
 import AboutView from '../views/AboutView.vue'
-//import EditTortueView from '../views/EditTortueView.vue'
+import ConnexionView from '../views/ConnexionView.vue'
 
 const routes = [
   {
@@ -31,6 +31,11 @@ const routes = [
     path: '/delete/:id',
     name: 'delete',
     component: EditTortueView
+  },
+  {
+    path: '/connexion',
+    name: 'connexion',
+    component: ConnexionView
   },
   {
     path: '/about',

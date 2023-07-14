@@ -7,13 +7,6 @@ const jwt = require('jsonwebtoken')
 module.exports = class API {
 
     //fetch all tortues
-    // static async fetchAllTortues(req, res) {
-    //     await Tortue.find()
-    //         .then(tortues => res.json(tortues))
-    //         .catch(err => res.status(500).send(err));
-    // };
-
-    //fetch all tortues
     static async fetchAllTortues(req, res) {
         const page = parseInt(req.query.page) || 1; // Current page number
         const limit = parseInt(req.query.limit) || 6; // Number of documents per page
@@ -54,9 +47,7 @@ module.exports = class API {
     static async createTortue(req, res) {
         const tortue = req.body;
         const image = req.file.path;
-        //const image = req.file.filename;
         tortue.image = image;
-        console.log(tortue)
         try {
             await Tortue.create(tortue)
             res.status(201).json({ message: 'Tortue enregistrée' })
@@ -67,6 +58,7 @@ module.exports = class API {
 
     // update tortue
     static async updateTortue(req, res) {
+        // console.log(req.body)
         const id = req.params.id;
         let new_image = "";
         if (req.file) {

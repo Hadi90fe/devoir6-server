@@ -95,6 +95,7 @@ export default {
         { title: 'Acceuil', icon: 'mdi-home-city', link: '/' },
         { title: "Ajouter Tortue", icon: "mdi-plus-thick", link: "/add" },
         { title: "À propos ?", icon: "mdi-information-outline", link: "/about" },
+        { title: "Connexion", icon: "mdi-network-outline", link: "/connexion" },
         { title: "Logout", icon: "mdi-logout-variant", link: "/logout" },
       ]
     }
